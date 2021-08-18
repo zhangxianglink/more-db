@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TbProtalBpmMapInfoMapper">
+
+
+    <insert id="saveList" parameterType="arraylist">
+        INSERT INTO tb_protal_bpm_map_info
+        (level_type, org_code, org_name, department_code, department_name, init) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.levelType},
+            #{item.orgCode},
+            #{item.orgName},
+            #{item.departmentCode},
+            #{item.departmentName},
+            #{item.init}
+            )
+        </foreach>
+    </insert>
+    <delete id="clearTable">
+        truncate table tb_protal_bpm_map_info
+    </delete>
+</mapper>

@@ -41,6 +41,7 @@ public class UserController {
     }
 
 
+
     /**
      * 查询
      */
@@ -50,6 +51,16 @@ public class UserController {
         log.info("DB1: {}",user.toString());
         User user2 = user2Mapper.selectById(id);
         log.info("DB2: {}",user2.toString());
+        return "over";
+    }
+
+    /**
+     * 查询
+     */
+    @PostMapping("/find2")
+    public Object find2(int id){
+        User user = userMapper.selectById(id);
+        log.info("DB1: {}",user.toString());
         return "over";
     }
 }
