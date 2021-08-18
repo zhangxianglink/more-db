@@ -1,9 +1,9 @@
 package com.example.demo.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.entity.TbSysAuth;
 import com.example.demo.mapper.TbSysAuthMapper;
 import com.example.demo.service.ITbSysAuthService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

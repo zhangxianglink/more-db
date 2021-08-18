@@ -1,12 +1,9 @@
 package com.example.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.example.demo.entity.RequestBaseUser;
 import com.example.demo.entity.SysGroup;
 import com.example.demo.entity.SysUserGroup;
 import com.example.demo.entity.UserInfo;
-import com.example.demo.mapper.SysUserGroupMapper;
-import com.example.demo.pojo.User;
 import com.example.demo.service.AuthService;
 import com.example.demo.service.ISysGroupService;
 import com.example.demo.service.ISysUserGroupService;

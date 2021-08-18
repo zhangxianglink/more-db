@@ -1,7 +1,7 @@
 package com.example.demo.mapper;
 
-import com.example.demo.entity.SysGroup;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.demo.entity.SysGroup;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

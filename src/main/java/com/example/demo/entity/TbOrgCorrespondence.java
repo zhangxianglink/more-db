@@ -2,7 +2,6 @@ package com.example.demo.entity;
 
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * <p>

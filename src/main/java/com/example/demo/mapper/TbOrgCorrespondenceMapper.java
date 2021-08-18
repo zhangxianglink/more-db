@@ -1,7 +1,7 @@
 package com.example.demo.mapper;
 
-import com.example.demo.entity.TbOrgCorrespondence;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.demo.entity.TbOrgCorrespondence;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

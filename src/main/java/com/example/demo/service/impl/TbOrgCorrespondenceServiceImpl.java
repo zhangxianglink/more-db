@@ -1,9 +1,9 @@
 package com.example.demo.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.entity.TbOrgCorrespondence;
 import com.example.demo.mapper.TbOrgCorrespondenceMapper;
 import com.example.demo.service.ITbOrgCorrespondenceService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
