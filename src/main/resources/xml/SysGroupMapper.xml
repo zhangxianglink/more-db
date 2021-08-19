@@ -2,4 +2,55 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.SysGroupMapper">
 
+    <sql id="Base_Column_List">
+        SELECT
+        sg1.id_ as id ,
+        sg1.level,
+        sg1.parent_ as parent,
+        sg1.code_ as codeTwo,
+        sg1.parents_ as path,
+        sg1.name_ as name,
+        sg1.group_type as grandpar,
+        sg2.code_ as codeThree
+        FROM point1.sys_group sg1 left join point1.sys_group sg2
+        on sg1.code_ = sg2.parent_ where sg1.level = 6
+        and sg1.group_type = #{type}
+    </sql>
+
+    <select id="getStores" resultType="com.example.demo.pojo.OrgRelationship">
+        <include refid="Base_Column_List" />
+        <if test="path !=null and path !=''">
+            AND sg1.parents_ like  CONCAT('',#{path},'=','%')
+        </if>
+    </select>
+
+    <select id="getStores2" resultType="com.example.demo.pojo.OrgRelationship">
+        <include refid="Base_Column_List" />
+        <if test="path !=null and path !=''">
+            AND sg1.parents_ = #{path}
+        </if>
+    </select>
+
+    <select id="searchStores" resultType="com.example.demo.pojo.OrgRelationship">
+        <include refid="Base_Column_List" />
+        <if test="path !=null and path !=''">
+            AND  sg1.parents_ like  CONCAT('',#{path},'=','%')
+        </if>
+
+        <if test="keyword !=null and keyword !=''">
+            AND	 sg1.name_ like  CONCAT('%',#{keyword},'%')
+        </if>
+    </select>
+
+    <select id="searchStores2" resultType="com.example.demo.pojo.OrgRelationship">
+        <include refid="Base_Column_List" />
+        <if test="path !=null and path !=''">
+            AND  sg1.parents_ = #{path}
+        </if>
+
+        <if test="keyword !=null and keyword !=''">
+            AND	 sg1.name_ like  CONCAT('%',#{keyword},'%')
+        </if>
+    </select>
+
 </mapper>

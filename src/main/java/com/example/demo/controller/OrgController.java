@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 /**
  * <p>
- * 用户表 前端控制器
+ * 数据库数据迁移
  * </p>
  *
  * @author xiang.z
@@ -70,7 +70,6 @@ public class OrgController {
 
         List<TbUser> list = userService.list(new LambdaQueryWrapper<TbUser>()
                 .isNotNull(TbUser::getDepartmentCode).ne(TbUser::getDepartmentCode,"")
-//                .eq(TbUser::getWorkNumber,"200508010001")
                 );
         list.forEach(e -> e.setDepartmentCode(e.getDepartmentCode().replace("AA","A")));
 
@@ -120,7 +119,6 @@ public class OrgController {
             );
         }
         sysUserGroupService.saveBatch(arrayList);
-
     }
 
     /**
@@ -129,8 +127,7 @@ public class OrgController {
     @GetMapping("/org")
     public void org(){
         // level  <= 5
-        List<TbOrgRelationshipT1> t1List = orgRelationshipT1Service.list(
-                new LambdaQueryWrapper<TbOrgRelationshipT1>());
+        List<TbOrgRelationshipT1> t1List = orgRelationshipT1Service.list();
         // level  > 5
         List<TbOrgRelationshipT1> lowLevel = orgRelationshipT1Service.list(
                 new LambdaQueryWrapper<TbOrgRelationshipT1>().isNotNull(TbOrgRelationshipT1::getCodeThree));
